@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Viora Visuals</title>
+    <link rel="icon" href="/images/vlogo.png" type="image/png">
+
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <style>
+      .body1{
+        background:
+    radial-gradient(circle at 10% 10%, #ddb7eb 0%, #ddb7eb33 40%, transparent 80%),
+    radial-gradient(circle at 90% 90%, #ddb7eb 0%, #ddb7eb33 40%, transparent 80%),
+    #fff;
+      }
+      
+ /* Responsive */
+    @media (max-width: 900px) {
+      .headline {
+        font-size: 3rem;
+        margin-top: 90px;
+      }
+  
+
+      .bottom-left {
+        font-size: 0.96rem;
+        left: 18px;
+        bottom: 18px;
+      }
+      .bottom-right {
+        font-size: 0.96rem;
+        right: 18px;
+        bottom: 18px;
+      }
+      .logo {
+        font-size: 24px;
+        top: 20px;
+        left: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .talk-btn {
+        right: 18px;
+        top: 18px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .headline {
+        font-size: 1.3rem;
+        margin-top: 60px;
+      }
+      .nav {
+        top: 14px;
+      }
+      .nav-inner {
+        max-width: 99%;
+      }
+ 
+
+      .bottom-left {
+        font-size: 0.82rem;
+        left: 8px;
+        bottom: 8px;
+      }
+      .bottom-right {
+        font-size: 0.82rem;
+        right: 8px;
+        bottom: 8px;
+      }
+      .logo {
+        font-size: 18px;
+        top: 14px;
+        left: 12px;
+      }
+    }
+   
+html {
+  scroll-behavior: smooth;
+}
+
+        /* GLOBAL RESETS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+/*Intro page*/
+
+/* Meet the team background */
+.section3 {
+  background: linear-gradient(270deg, #ffffff, #fdf4ff, #f3e1fb, #fdf4ff, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  font-family: 'Satoshi', Arial, sans-serif;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding:10%;
+}
+
+/* Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Layout */
+.main-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1100px;
+  min-height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  margin: 0 auto;
+  margin-left: 10%;
+}
+
+/* Floating image animation */
+img.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Left Column */
+.left-col {
+  flex: 1;
+  min-width: 280px;
+  max-width: 420px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  
+  
+}
+
+.left-col h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.left-col .team {
+  color: #9439BB;
+  font-weight: 700;
+}
+
+.left-col p {
+  margin-top: 18px;
+  font-size: 1.1rem;
+    line-height: 1.5;
+      font-weight: 500;
+  max-width: 100%;
+  color: #222;
+ 
+}
+
+/* Right Column */
+.right-col {
+  flex: 1;
+  min-width: 280px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel img {
+  width: 100%;
+}
+.carousel-arrow {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      transition: filter 0.2s;
+      user-select: none;
+      height: 340px;
+    }
+
+    .carousel-arrow img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      filter: grayscale(0.2) brightness(0.8);
+      transition: filter 0.2s;
+    }
+
+    .carousel-arrow:hover img {
+      filter: drop-shadow(0 0 2px #9C4DFF) grayscale(0);
+    }
+     @media (max-width: 768px) {
+  
+
+  .left-col h1 {
+    font-size: 2rem;
+    margin-right: 25%;
+
+  }
+  .left-col p{
+    max-width:80%;
+  }
+
+  .carousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-arrow {
+    height: auto;
+    padding: 0 4px;
+  }
+  
+  .left-col h1{
+    text-align: center;
+  }
+  .right-col{
+    margin-right: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-col h1 {
+    font-size: 1.6rem;
+  }
+
+  .left-col p {
+    font-size: 0.95rem;
+  }
+
+  .carousel-arrow img {
+    width: 24px;
+    height: 24px;
+  }
+}
+.section2 {
+      min-height: 100vh;
+
+      color: #222;
+      font-family: 'Satoshi', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0 0 0;
+      background: linear-gradient(to top, #b88edc 0%, #ffffff 60%);
+    }
+
+    .container2 {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      max-width: 1200px;
+      margin: 60px auto 0 auto;
+      
+      gap: 3rem;
+      width: 100%;
+      margin-left: 5%;
+    }
+
+    .left-section {
+      flex: 1;
+      max-width: 410px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 7%;
+      margin-top: -40px;
+    }
+    .left-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.2em;
+      letter-spacing: -0.02em;
+    }
+    .left-section .highlight,
+    .left-section h1 span {
+      color: #9439BB;
+      font-size: 2.6rem;
+      font-weight: 700;
+      display: block;
+      letter-spacing: -0.02em;
+    }
+    .left-section p {
+      font-family: 'Satoshi', Arial, sans-serif;
+      font-size: 1.1rem;
+      margin: 28px 0 36px 0;
+      color: #222;
+      line-height: 1.5;
+      font-weight: 500;
+      
+    }
+    
+    .learn-btn,
+    .left-section button {
+      display: inline-block;
+      padding: 14px 90px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 38px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .learn-btn:hover,
+    .left-section button:hover { background: #9439BB; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 1.5rem;
+      flex: 2;
+      min-width: 0;
+      width: 100%;
+      align-items: start;
+      justify-items: start;
+      margin-left: 80px;
+    }
+
+    .item {
+      width: 16rem;
+      height: 10rem;
+      background-color: #1a1a1a;
+      position: relative;
+      border-radius: 30px;
+    }
+
+    .item::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: transparent;
+      top: 0;
+      left: 0;
+      border-radius: 30px;
+    }
+
+    .item__content {
+      height: 100%;
+      width: 100%;
+      padding: 1rem;
+      background: white;
+      color: black;
+      border: 1.5px solid black;
+      position: relative;
+      transform: translate(-5%, -5%);
+      transition: transform 0.2s;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .item__content:hover,
+    .item__content:focus-within {
+      transform: translate(0, 0);
+    }
+
+    .font-bold {
+      font-weight: bold;
+    }
+
+    .mb-2 {
+      margin-bottom: 0.2rem;
+      font-size: x-large;
+    }
+
+    /* Decorative image styling */
+    .img {
+      display: block;
+      max-width: 700px;
+      width: 600px;
+      height: auto;
+      margin-left:-600px;
+      margin-top:20px;
+    }
+    @media (max-width: 900px) {
+      .img {
+        max-width: 500px;
+        margin: 32px auto 0 auto;
+      }
+      .container2{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        
+      }
+    }
+    @media (max-width: 600px) {
+      .section2 {
+        background: linear-gradient(30deg, #ffffff, #fdf4ff, #f3e1fb, #fdf4ff, #ffffff);
+      }
+      .container2 {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 80%;
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0;
+        gap: 1.2rem;
+      }
+      .left-section {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 1.1rem;
+        padding-left: 0;
+        margin-left: 30%;
+      }
+      .left-section h1{
+        text-align: center;
+        margin-left: 0px;
+        
+      }
+      .left-section h1, .left-section .highlight, .left-section h1 span {
+        font-size: 2rem;
+      }
+      .left-section p {
+        font-size: 0.95rem;
+        margin-right: 150px;
+      }
+      .learn-btn,
+      .left-section button {
+        width: 50%;
+        padding: 12px 0;
+        font-size: 1rem;
+      }
+      .grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.7rem !important;
+        width: 100%;
+        justify-items: start;
+        margin-left: 10%;
+      }
+      .item {
+        width: 100% !important;
+        max-width: 98%;
+        margin-left: 0;
+        min-height: 6.5rem;
+        border-radius: 18px;
+      }
+      .item__content {
+        padding: 1rem 0.7rem 0.7rem 0.7rem;
+        font-size: 0.97rem;
+        border-radius: 18px;
+      }
+      .font-bold.mb-2 {
+        font-size: 1.05rem;
+      }
+      .img {
+        max-width: 220px;
+        margin: 24px auto 0 -30px !important; /* Centered, but nudged left */
+      }
+    }
+ /*Why choose us*/
+    .section4 {
+      background:
+    radial-gradient(circle at 30% 50%, #ddb7eb 0%, #ddb7eb33 40%, transparent 80%),
+    #fff;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      
+      background: none;
+      border-radius: 18px;
+      align-items: flex-start;
+      gap: 64px;
+      margin-left:3%;
+      padding-top: 30px;
+    }
+
+    .left {
+        font-family: 'Satoshi', Arial, sans-serif;
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      
+      max-width: 390px;
+      margin: 0;
+      margin-top: 18px;
+      margin-left: 8%;
+    }
+
+    .why-heading {
+      margin-bottom: 18px;
+      text-align: left;
+      font-size: 1.01rem;
+      line-height: 1.1;
+      margin-left: 7%;
+    }
+
+    .why-heading .why {
+      color: #984fd6;
+      font-size: 3rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.08em;
+      letter-spacing: -2px;
+      font-family: 'Satoshi', Arial, sans-serif;
+      
+    }
+
+    .why-heading .choose {
+      color: #222;
+      font-size: 3rem;
+      font-weight: 700;
+      display: block;
+      letter-spacing: -2px;
+      font-family: 'Satoshi', Arial, sans-serif;
+      
+    }
+
+    .left p {
+      
+      color: #222;
+      
+      margin-bottom: 32px;
+      
+      text-align: justify;
+     font-size: 1.1rem;
+    line-height: 1.5;
+      font-weight: 500;
+      margin-left: 8%;
+    
+    }
+
+    .left button {
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Satoshi', Arial, sans-serif;
+      font-weight: 700;
+      margin-top: 0px;
+      box-shadow: 0 2px 8px rgba(80,40,120,0.04);
+      text-align: justify;
+      margin-left:40px;
+    }
+    .left button:hover {
+      background: #984fd6;
+    }
+
+    .right1 {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 350px;
+      max-width: 490px;
+      margin-left: 6%;
+      margin-top: 30px;
+    }
+
+    .accordion {
+      border-radius: 16px;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: none;
+      border: 1.5px solid #222;
+      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+      margin-bottom: 0;
+      
+      position: relative;
+    }
+    .accordion.active {
+      background: #ddc2e7;
+      border: 2px solid #ddc2e7;
+      box-shadow: 0 4px 24px rgba(152, 79, 214, 0.08);
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      transition: background 0.2s;
+      color: #222;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+    .accordion.active .accordion-header {
+  position: relative;
+}
+
+
+.accordion.active .accordion-header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4px;
+  width: 90%;         /* Adjust this value for the desired line length */
+  height: 1px;
+  background: #222;
+  border-radius: 2px;
+}
+
+
+    
+    .accordion-header .icon {
+      font-size: 1.35rem;
+      font-weight: bold;
+      color: #222;
+      border-radius: 50%;
+      border: 1.5px solzid #222;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+      background: transparent;
+    }
+    .accordion.active .accordion-header .icon {
+      color: #222;
+      border-color: #DDB7EB;
+      background: #DDB7EB;
+    }
+    .accordion-content {
+      display: none;
+      padding: 0 28px 18px 28px;
+      font-size: 1.05rem;
+      color: #222;
+      background: none;
+      animation: fadeIn 0.3s;
+      font-weight: 500;
+      margin-top: -2px;
+      font-family: 'Satoshi', Arial, sans-serif;
+    }
+    .accordion.active .accordion-content {
+      display: block;
+      background: none;
+    }
+    .accordion.active .accordion-header {
+      color: #222;
+      background: none;
+    }
+    .accordion:not(.active) .accordion-header:hover {
+      background: #f6f0fa;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 768px) {
+        .section4{
+            background: linear-gradient(30deg, #ffffff, #fdf4ff, #f3e1fb, #fdf4ff, #ffffff);
+        }
+  .container {
+    flex-direction: column;
+    padding: 0;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .left {
+    margin:35px;
+    min-width: auto;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .why-heading {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .why-heading .why,
+  .why-heading .choose {
+    font-size: 2rem;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-right: 15px;
+  }
+
+  .left p {
+    
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-left: 10px;
+  }
+
+  .left button {
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    margin-left: 10px;
+  }
+
+  .right1 {
+    margin-left: 0;
+    min-width: auto;
+    max-width: 90%;
+  }
+
+  .accordion-header {
+    padding: 16px 20px;
+    font-size: 0.95rem;
+  }
+
+  .accordion-content {
+    font-size: 0.95rem;
+    padding: 0 20px 16px 20px;
+    font-family: 'Satoshi', Arial, sans-serif;
+  }
+
+  .accordion-header .icon {
+    width: 24px;
+    height: 24px;
+    font-size: 1.2rem;
+  }
+  
+}
+@media (max-width: 900px) and (min-width: 601px) {
+.right1 {
+    margin-left: 0;
+    min-width: auto;
+    max-width: 60%;
+  }
+  .container{
+    margin-left: 0px;
+  }
+  .left{
+    margin-right: 40px;
+  }
+  .section4{
+    margin: 0px;
+  }
+}
+
+   /*Talk to us & footer*/
+            /*footer*/
+
+        .viora-footer {
+  background: linear-gradient(90deg, #f7f0fa 0%, #f3e6f7 100%);
+  padding: 40px 0;
+  font-family: 'Satoshi', Arial, sans-serif;
+  margin: 0px;
+  color: #3b2b4a;
+  padding: 20px;
+  
+}
+
+.footer-content {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  flex: 1 1 220px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 500;
+  
+  letter-spacing: 1px;
+}
+
+.footer-copyright {
+  font-size: 0.95rem;
+  color: #7d6c96;
+  margin-bottom: 18px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  background-color:  #DDB7EB;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  filter: invert(55%) sepia(11%) saturate(300%) hue-rotate(230deg) brightness(1.1);
+}
+
+.footer-social a:hover img {
+  background: #886d92;
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+  flex: 2 1 320px;
+}
+
+.footer-links > div {
+  min-width: 140px;
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #3b2b4a;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #3b2b4a;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #a478e8;
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    font-size: 0.95rem;
+  }
+  .footer-links {
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+  .viora-footer{
+    padding: 40px;
+    margin: 0;
+  }
+  .footer-links a{
+    font-size: 0.85rem;
+  }
+}
+.section5 {
+    margin: 0;
+    font-family: 'Satoshi', Arial, sans-serif;
+    line-height: 1.7;
+    
+  }
+  
+  .contain1 {
+    display: flex;
+    
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 5%;
+  }
+  
+  .left1 {
+    min-width: 400px;
+    max-width: 420px;
+    margin-left: 40px;
+  }
+  
+  .left1 h1 {
+    font-size: 3em;
+    
+    margin-bottom: 30px;
+    line-height: 1.2;
+  }
+  
+  .highlight {
+    color: #9c4dcc;
+    font-weight: bold;
+  }
+  
+  .left1 p {
+    font-size: 15px;
+    color: #333;
+    text-align: justify;
+    
+    font-size: 1.01rem;
+    font-weight: 500;
+    line-height: 1.5 ;
+    max-width: 360px;
+    
+  }
+  
+  .right2 {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    width: 500px;
+    margin-right: 40px;
+   
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, select, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  button {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  @media (max-width: 768px){
+    
+    .right2{
+        margin: 20px;
+        padding: 20px;
+        width:300px ;
+    }
+    .left1 {
+  max-width: 60%;
+  margin-right: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.left1 h1 {
+  margin-right: 30%;
+  text-align: center;
+  font-size: 2rem;
+
+}
+
+.left1 p {
+  margin-left: 5%;
+  text-align: left;
+  max-width: 60%;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+  }
+
+
+
+  /* starting of try*/
+  .body1 {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Satoshi', Arial, sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, #ddb7eb 0%, #ddb7eb33 40%, transparent 80%),
+    radial-gradient(circle at 90% 90%, #ddb7eb 0%, #ddb7eb33 40%, transparent 80%),
+    #fff;
+  color: #222;
+  position: relative;
+  overflow-x: hidden;
+}
+
+    .flip-vertical {
+  display: inline-block;
+  transform: rotate(180deg) translateY(0.5px); /* Adjust 4px as needed */
+  vertical-align: middle;
+}
+
+
+    /* Logo */
+    .logo {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 0.02em;
+      letter-spacing: -0.015em;
+      position: absolute;
+      top: 28px;
+      left: 40px;
+      z-index: 11;
+      pointer-events: none;
+    }
+    .letter {
+      display: inline-block;
+      position: relative;
+    }
+    .o-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .o-base {
+      z-index: 1;
+    }
+    .star {
+      position: absolute;
+      font-size: 0.35em;
+      color: #1a1a1a;
+      pointer-events: none;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    .lambda svg {
+      vertical-align: middle;
+      display: inline-block;
+      width: 18px;
+      height: 24px;
+      stroke: #1a1a1a;
+      stroke-width: 2;
+      stroke-linejoin: round;
+      fill: none;
+    }
+/* Default (Desktop/Tablet) */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.hamburger {
+  display: none; /* Hide hamburger by default */
+}
+
+.talk-btn {
+  margin-left: 16px;
+  padding: 8px 20px;
+  background: #222;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.talk-btn:hover {
+  background: #444;
+}
+  /* Circles */
+    .circles {
+      position: relative;
+      width: 480px;
+      height: 280px;
+      margin: 0 auto;
+      margin-top: 10px;
+      margin-left: 33%;
+    }
+    .circle-back {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 32px solid #DDB7EB;
+      background: transparent;
+      opacity: 0.5;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+    .circle-front {
+      position: absolute;
+      left: 140px;
+      top: 0;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: #9439BB;
+      z-index: 2;
+      box-shadow: 0 8px 32px #984fd633;
+    }
+     @media (max-width: 900px){
+      .circles {
+    width: 300px;
+    height: 180px;
+    margin-right: 40%;
+    margin-bottom: 50px;
+  }
+     }
+         @media (max-width: 600px) {
+  .circles {
+    width: 300px;
+    height: 180px;
+    margin-right: 10%;
+    
+  }
+
+  .circle-back {
+    width: 160px;
+    height: 160px;
+    border: 20px solid #DDB7EB;
+  }
+
+  .circle-front {
+    left: 80px;
+    width: 160px;
+    height: 160px;
+  }
+}
+/* Phone View (max-width: 600px) */
+@media (max-width: 600px) {
+  .nav-inner {
+    flex-direction: row;
+    padding: 0 8px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    padding: 12px 0;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: block; /* Show hamburger only on phone view */
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .talk-btn {
+    margin-left: 0;
+    font-size: 1rem;
+    padding: 10px 16px;
+    border-radius: 16px;
+  }
+}
+
+    /* Navigation */
+    .nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .nav-inner {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-size: 1.08rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #222;
+      pointer-events: auto;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #9439BB;
+    }
+    @keyframes pop {
+  0%   { transform: scale(1);}
+  60%  { transform: scale(1.08);}
+  100% { transform: scale(1);}
+}
+
+     .talk-btn {
+  position: absolute;
+  top: 30px;         /* Adjust as needed */
+  right: 50px;       /* Match .bottom-right */
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+    .talk-btn:hover {
+  background: #9439BB;
+  animation: pop 0.3s cubic-bezier(.77,0,.18,1);
+}
+
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .headline {
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-top: 120px;
+      margin-bottom: 40px;
+      color: #222;
+      letter-spacing: -0.04em;
+    }
+
+    
+
+    /* Bottom Texts */
+    .bottom-left {
+      position: absolute;
+      left: 40px;
+      bottom: 40px;
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: #222;
+      letter-spacing: 0.01em;
+      text-align: left;
+      line-height: 1.4;
+    }
+.bottom-right {
+  position: absolute;
+  right: 50px;        /* Match .talk-btn */
+  bottom: 48px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #222;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+    .arrow {
+  font-size: 1.1em;
+  margin-left: 3px;
+  display: inline-block;
+  transform: rotate(-45deg) translateY(-1px);
+  animation: arrow-move 1.2s cubic-bezier(.77,0,.18,1) infinite;
+}
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      
+      .bottom-left {
+        font-size: 0.96rem;
+        left: 18px;
+        bottom: 18px;
+      }
+      .bottom-right {
+        font-size: 0.96rem;
+        right: 18px;
+        bottom: 18px;
+      }
+      .logo {
+        font-size: 24px;
+        top: 20px;
+        left: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .talk-btn {
+        right: 18px;
+        top: 18px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .headline {
+        font-size: 1.3rem;
+        margin-top: 60px;
+      }
+      .nav {
+        top: 14px;
+      }
+      .nav-inner {
+        max-width: 99%;
+      }
+      
+      .bottom-left {
+        font-size: 0.82rem;
+        left: 8px;
+        bottom: 8px;
+      }
+      .bottom-right {
+        font-size: 0.82rem;
+        right: 8px;
+        bottom: 8px;
+      }
+      .logo {
+        font-size: 18px;
+        top: 14px;
+        left: 12px;
+      }
+    }
+/* === CSS Animations === */
+/* Back circle twirls in from left */
+@keyframes enter-twirl {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px) scale(0.6) rotate(-360deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+}
+
+/* Front circle blooms in from right */
+@keyframes enter-bloom {
+  0% {
+    opacity: 0;
+    transform: translateX(120px) scale(0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(0) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Switch positions animations */
+@keyframes switch-places {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(140px); }
+  50% { transform: translateX(0); }
+  75% { transform: translateX(140px); }
+}
+
+@keyframes switch-places-reverse {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-140px); }
+  50% { transform: translateX(0); }
+  75% { transform: translateX(-140px); }
+}
+.circle-back {
+  opacity: 0;
+  animation: enter-twirl 1.5s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.circle-front {
+  opacity: 0;
+  animation: enter-bloom 1.5s 1.5s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+/* When switching, ensure opacity stays at 1 and animation loops infinitely */
+.circle-back.switch {
+  opacity: 1;
+  animation: switch-places 1s ease-in-out 0.5s 0.5 alternate;
+  animation-fill-mode: forwards;
+}
+
+.circle-front.switch {
+  opacity: 1;
+  animation: switch-places-reverse 1s ease-in-out 0.5s 0.5 alternate;
+  animation-fill-mode: forwards;
+}
+
+
+.fade-in-bottom {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s 2.5s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.explore-cta {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.explore-cta:hover .arrow {
+  animation: arrow-hover-move 0.6s cubic-bezier(.77,0,.18,1);
+}
+
+@keyframes arrow-hover-move {
+  0% { transform: translateX(0) rotate(-45deg) translateY(-1px);}
+  60% { transform: translateX(12px) rotate(-45deg) translateY(-1px);}
+  100% { transform: translateX(0) rotate(-45deg) translateY(-1px);}
+}
+
+@keyframes arrow-move {
+  0%   { transform: rotate(-45deg) translateY(-1px) translateX(0); }
+  50%  { transform: rotate(-45deg) translateY(-1px) translateX(10px); }
+  100% { transform: rotate(-45deg) translateY(-1px) translateX(0); }
+}
+.hamburger {
+  display: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* less gap for mobile */
+    position: static;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    font-size: 0.01rem; /* smaller font */
+  }
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    color: #000000;
+    font-weight: 400;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.18s, color 0.18s;
+    margin-top: 1%;
+  }
+  .nav-links a:hover {
+    background: #f3e1fb;
+    color: #222;
+  }
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    width: 70px;    /* or whatever size looks best */
+    height: auto;
+    max-height: 40px;
+  }
+  .logo {
+    font-size: 14px; /* If you use text logo, reduce font size too */
+    top: 10px;
+    left: 8px;
+    margin-top: 3%;
+  }
+}
+@media (max-width: 600px) {
+  .talk-btn {
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    top: 20px;
+    right: 8px;
+  }
+}
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 20px;
+
+}
+
+.section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    
+ /*try ending*/
+    </style>
+</head>
+<body>
+  <!-- Logo -->
+   <div class="body1 section">
+  <div class="logo">
+    <img src="images/VIORA2.svg" alt="VIORA Logo">
+  </div>
+
+  <!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#team">Team</a>
+      <a href="#whyus">Why&nbsp;us</a>
+    </div>
+  </div>
+</nav>
+
+<button class="talk-btn" onclick="location.href='#contact'">Talk to us</button>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="headline">
+      We Build Brands<br>
+      That People Remember.
+    </div>
+    <div class="circles">
+      <div class="circle-back"></div>
+      <div class="circle-front"></div>
+    </div>
+      <!-- Bottom Texts -->
+  <div class="bottom-left fade-in-bottom">
+    Turning Vision into<br>
+    Visuals
+  </div>
+  
+  <div class="bottom-right explore-cta">
+    EXPLORE <span class="arrow">&#8594;</span>
+  </div>
+  <br><br>
+  </section>
+</div>
+
+  
+    <!--Intro page-->
+    <section class="section1">
+
+    
+  </section>
+    <!--Our services-->
+    <section class="section2 section" id="services">
+ <div class="container2" id="services">
+    <div class="left-section">
+      <h1>Our <span>Services</span></h1>
+      <p>We create fun, fresh, and fearless designs for brands that don’t do boring.</p>
+      <button onclick="nextpage()">Learn more</button>
+    </div>
+    <div class="grid">
+      <div class="grid__item item">
+        <div class="item__content" tabindex="0">
+          <div class="font-bold mb-2">Social Media</div>
+          <p>Thumb-stopping content that help your brand stay loud, fun, and relevant.</p>
+        </div>
+      </div>
+      <div class="grid__item item">
+        <div class="item__content" tabindex="0">
+          <div class="font-bold mb-2">UIUX</div>
+          <p>Smooth, scroll-happy experiences your users will actually love using.</p>
+        </div>
+      </div>
+      <div class="grid__item item">
+        <div class="item__content" tabindex="0">
+          <div class="font-bold mb-2">Logo Design</div>
+          <p>Logos that aren’t just pretty – they’re iconic and unforgettable.</p>
+        </div>
+      </div>
+      <div class="grid__item item">
+        <div class="item__content" tabindex="0">
+          <div class="font-bold mb-2">Branding</div>
+          <p>Shape your brand’s personality with bold visuals and a vibe that sticks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class="img" src="https://c.animaapp.com/mazhxxneZKc7Q5/img/group-2.png" alt="Decorative curved line" />
+    </section>
+    <!--Meet our team-->
+    <section class="section3 section" id="team">
+    <div class="main-wrap">
+    <div class="left-col">
+      <h1>Meet<br>The <span class="team">team</span></h1>
+      <p>
+        Viora Visuals started as a bunch of creative friends who just loved making things look awesome – from cool logos to killer social media content. We’re young, vibrant, and a little bit playful because we believe great design shouldn’t be boring or stiff. We formed Viora Visuals to bring fresh energy to the creative world, helping brands stand out with bold visuals and fun vibes. <br> Our mission? To make your brand look and feel as unique and alive as you are — because creativity is all about having fun while making an impact.
+      </p>
+    </div>
+    <br>
+    <br>
+    <div class="right-col">
+      <button class="carousel-arrow" id="prevBtn">
+        <img src="./images/Vectorleft.svg" alt="Previous" class="floating">
+      </button>
+      <div class="carousel">
+        <img id="carouselImage" src="./images/rez.png" alt="Team Member" class="floating">
+      </div>
+      <button class="carousel-arrow" id="nextBtn">
+        <img src="./images/Vectorright.svg" alt="Next" class="floating">
+      </button>
+    </div>
+  </div>
+</div>
+    </section>
+    <!--Why choose us-->
+    <section class="section4 section" id="whyus">
+    <div class="container">
+    <div class="left">
+      <div class="why-heading">
+        <span class="why">Why</span>
+        <span class="choose">choose us?</span>
+      </div>
+      <p>
+        Because at Viora Visuals, we’re more than just a creative agency – we’re a squad of passionate creators ready to bring your brand to life with fresh ideas, bold vibes, and a whole lot of personality. We work hard, play harder, and make sure your brand doesn’t just blend in but straight-up stands out. When you roll with us, you get the full energy, the fun, and the magic that only a tight-knit team can deliver. Let’s make something epic together!
+      </p>
+      <button onclick="nextpage()">Have more questions?</button><br>
+    </div>
+    <div class="right1">
+      <div class="accordion" id="acc-1">
+        <div class="accordion-header">
+          What kind of services does Viora Visuals offer?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <br>
+          We’re all about branding, UI/UX design, logo creation, and social media management — basically, everything you need to make your brand pop and connect with people.
+        </div>
+      </div>
+      <div class="accordion" id="acc-2">
+        <div class="accordion-header">
+          How do you keep your designs fresh and unique?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <br>
+          Our team thrives on creativity and innovation. We constantly explore trends, experiment with styles, and tailor every project to your brand’s unique vibe.
+        </div>
+      </div>
+      <div class="accordion" id="acc-3">
+        <div class="accordion-header">
+          Can you help with social media strategy too?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <br>
+          Absolutely! We don’t just design — we strategize, plan, and manage your social media presence to maximize engagement and growth.
+        </div>
+      </div>
+      <div class="accordion" id="acc-4">
+        <div class="accordion-header">
+          How involved will I be in the design process?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <br>
+          You’re part of the journey! We keep you in the loop, gather your feedback, and make sure the final result is something you love.
+        </div>
+      </div>
+      <div class="accordion" id="acc-5">
+        <div class="accordion-header">
+          What makes Viora Visuals different?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+            <br>
+          It’s all about our energy, passion, and dedication. We’re a tight-knit team that genuinely cares about making your brand shine in a way that’s bold, memorable, and uniquely you.
+        </div>
+      </div>
+    </div>
+  </div>
+    </section>
+    <!--Talk to us & footer-->
+    <section class="section5 section" id="contact">
+        <div class="full">
+    <div class="contain1">
+      <div class="left1"><br><br><br>
+        <h1><span class="highlight">Talk</span> to us <br></h1>
+        <p>
+          Got questions? Ideas? Just wanna chat about how we can make your brand shine?
+          Hit us up! The Viora Visuals team is always ready to listen, brainstorm, and
+          bring those awesome vibes to life. We’re here to help you level up and make
+          something unforgettable – so, let’s talk!
+        </p>
+      </div>
+      <div class="right2">
+        <form id="contactForm">
+          <label>Full Name</label>
+          <input type="text" id="fullName" placeholder="Viora Visuals" required />
+
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="vioravisuals@example.com" required />
+
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 0000000000" required />
+
+          <label>Subject</label>
+          <select id="subject">
+            <option>General Inquiry</option>
+            <option>Support</option>
+            <option>Partnership</option>
+          </select>
+
+          <label>Message</label>
+          <textarea id="message" placeholder="Your message here..." required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+    </section>
+  <footer class="viora-footer">
+    
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="./images/VIORA.svg">
+      </div>
+      <div class="footer-copyright">
+        Copyright © 2025 VioraVisuals<br>
+        All rights reserved
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/vioravisuals?igsh=MTR6eDMxaGswa2lkMQ==" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="" /></a>
+        <a href="https://www.behance.net/vioravisuals" aria-label="Behance"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/behance.svg" alt="" /></a>
+        <a href="https://twitter.com/VioraVisuals" aria-label="Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="" /></a>
+        <a href="https://www.linkedin.com/in/viora-visuals-aa8569361/" aria-label="Linkedin"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="" /></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div>
+        <div class="footer-title">Company</div>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#whyus">FAQ</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><a href="./legal.html">Legal policy</a></li>
+          <li><a href="./cookies.html">Cookie policy</a></li>
+          <li><a href="./privacy.html">Privacy policy</a></li>
+          <li><a href="./termsofservice.html">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  
+</footer>
+</div>
+    
+    <script>
+    const images = [
+      './images/rez.png',
+      './images/ruti.png',
+      './images/leo.png',
+      './images/ira.png'
+    ];
+
+    let currentIndex = 0;
+    const carouselImage = document.getElementById('carouselImage');
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      carouselImage.src = images[currentIndex];
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      carouselImage.src = images[currentIndex];
+    });
+  </script>
+  <script>
+         // Accordion functionality
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const parent = this.parentElement;
+        // Close all accordions except the clicked one
+        document.querySelectorAll('.accordion').forEach(acc => {
+          if (acc !== parent) {
+            acc.classList.remove('active');
+            acc.querySelector('.icon').textContent = '+';
+          }
+        });
+        // Toggle the clicked accordion
+        parent.classList.toggle('active');
+        // Change icon to minus (true minus sign) when open, plus when closed
+        const icon = this.querySelector('.icon');
+        if (parent.classList.contains('active')) {
+            icon.textContent = '−'; // Unicode minus sign U+2212
+        } else {
+          icon.textContent = '+';
+        }
+      });
+    });
+
+    </script>
+   
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelector('.circle-back').classList.add('switch');
+        document.querySelector('.circle-front').classList.add('switch');
+      }, 3000); // 1.5s + 1.5s = 3s
+    });
+
+
+
+    </script>
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+
+<script>
+  function nextpage() {
+    window.location.href = "#contact"; // Replace with your page URL
+  }
+
+
+
+</script>
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+      observer.unobserve(entry.target); // Remove this line if you want to re-animate on scroll back
+    }
+  });
+}, {
+  threshold: 0.15, // Adjust if needed (0.15 = 15% visible)
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>
+
+
+
+
+
+<script>
+    // 1. Firebase config (use your correct details)
+    const firebaseConfig = {
+      apiKey: "AIzaSyB6nQOE4yAq6R7eY1yZmLXJyFwHMvP9lcE",
+      authDomain: "talk-to-us-5f1f4.firebaseapp.com",
+      databaseURL: "https://talk-to-us-5f1f4-default-rtdb.firebaseio.com",
+      projectId: "talk-to-us-5f1f4",
+      storageBucket: "talk-to-us-5f1f4.appspot.com",
+      messagingSenderId: "219723184876",
+      appId: "1:219723184876:web:7bf6aceab3badfcafe03c9"
+    };
+
+    // 2. Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // 3. Test write to ensure Firebase connection
+    db.ref('test').set({hello: "world"})
+      .then(() => console.log("Test write succeeded"))
+      .catch((error) => console.error("Test write failed:", error));
+
+    // 4. Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      console.log("Form submit handler triggered"); // Debug
+
+      // Get form values
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      // Save to Firebase
+      const newContactRef = db.ref('contacts').push();
+      newContactRef.set({
+        fullName: fullName,
+        email: email,
+        phone: phone,
+        subject: subject,
+        message: message,
+        submittedAt: new Date().toISOString()
+      }).then(() => {
+        alert("Message sent successfully!");
+        document.getElementById('contactForm').reset();
+      }).catch((error) => {
+        alert("Error sending message: " + error.message);
+        console.error("Firebase write error:", error);
+      });
+    });
+  </script>
+</body>
+
+</body>
+</html>
